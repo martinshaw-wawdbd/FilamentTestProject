@@ -19,6 +19,13 @@ class PatientResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'type', 'date_of_birth', 'owner.name'];
+    }
+
     public static function form(Form $form): Form
     {
         return $form
